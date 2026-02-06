@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { generateFrogsona } from '../services/geminiService';
 import { Frogsona } from '../types';
@@ -93,29 +92,3 @@ const FrogsonaGenerator: React.FC = () => {
             )}
           </div>
         </div>
-
-        {/* History */}
-        {history.length > 0 && (
-          <div className="mt-12">
-            <h3 className="text-xl font-bold text-emerald-100 mb-4 flex items-center gap-2">
-              <i className="fas fa-history text-emerald-500"></i>
-              Recent Hatchlings
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {history.map((frog) => (
-                <div key={frog.id} className="group relative aspect-square rounded-xl overflow-hidden border border-emerald-800 hover:border-emerald-500 transition-all cursor-pointer">
-                  <img src={frog.url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="History Frog" />
-                  <div className="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
-                    <p className="text-[10px] text-center text-white line-clamp-3">{frog.prompt}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default FrogsonaGenerator;
