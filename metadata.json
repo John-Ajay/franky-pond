@@ -1,0 +1,7 @@
+{
+  "name": "Franky's Interactive Pond",
+  "description": "An AI-powered playground for the Franky the Frog NFT community. Chat with Franky, generate unique 'Frogsonas', and explore the swampy roadmap.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
