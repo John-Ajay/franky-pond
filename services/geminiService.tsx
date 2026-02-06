@@ -1,8 +1,20 @@
+import { GoogleGenAI } from "@google/genai";
 
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+// Declare process for TypeScript so it doesn't fail the build
+declare global {
+  interface Window {
+    process: {
+      env: {
+        API_KEY: string;
+      };
+    };
+  }
+}
 
 const getAIClient = () => {
-  return new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+  // Vite injects this via define in vite.config.ts
+  const apiKey = (process.env.API_KEY) || '';
+  return new GoogleGenAI({ apiKey });
 };
 
 export const chatWithFranky = async (history: {role: string, parts: {text: string}[]}[], message: string): Promise<string> => {
